@@ -22,19 +22,19 @@
                 <a href="#">La Passion</a>
             </div>
             <div class="nav__navbar">
-                <a href="#" class="navbar-link">home</a>
-                <a href="#aboutus" class="navbar-link">about us</a>
+                <a href="./index.html" class="navbar-link">home</a>
+                <a href="./index.html" class="navbar-link">about us</a>
                 <a href="./gallery.html" class="navbar-link">gallery</a>
-                <a href="./contact.html" class="navbar-link">contact</a>
+                <a href="#" class="navbar-link">contact</a>
             </div>
             <button class="nav__burger-btn"><i class="fas fa-bars"></i></button>
             <div class="nav__mobile">
                 <button class="nav__mobile-btn"><i class="fas fa-times"></i></button>
                 <ul class="nav__mobile-links">
-                    <li><a href="#" class="mobile-link">home</a></li>
-                    <li><a href="#aboutus" class="mobile-link">about us</a></li>
+                    <li><a href="./index.html" class="mobile-link">home</a></li>
+                    <li><a href="./index.html" class="mobile-link">about us</a></li>
                     <li><a href="./gallery.html" class="mobile-link">gallery</a></li>
-                    <li><a href="./contact.html" class="mobile-link">contact</a></li>
+                    <li><a href="#" class="mobile-link">contact</a></li>
                 </ul>
                 <img src="./icons/scissors-2702564.svg" alt="grey haidressers scissors">
             </div>
@@ -45,59 +45,44 @@
             <div class="header__shadow"></div>
             <div class="header__text">
                 <h1 class="header__title">Hair Salon with Passion</h1>
-                <p class="header__description">It's not just a haircut .. It's a passion!<br>
-                    We provide a wide range of hairdressing services for women, men and children in our salon.</p>
+                <p class="header__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem,
+                    quibusdam!</p>
             </div>
         </div>
     </header>
-    <main class="wrapper main">
-        <section class="main__aboutus" id="aboutus">
-            <h2 class="main__title">about us</h2>
-            <p class="main__abouttext">La Passion Hair Salon is a place created specifically for people who wish for
-                utter beauty. Our guests
-                can always count on professional support, advice and assistance from the staff. Nice, intimate
-                atmosphere, as well as individual approach to the customers that you will find in our Salon everything
-                that is needed to fully relax. <br><br> As always Hairdressing Services Technician I care to meet the
-                needs of each client. Years gained as an apprenticeship under the tutelage of the best stylists helped
-                me to liaise with prestigious salons in the UK and consequently the opening Salon LA PASSION. An
-                additional advantage of our prices are affordable for everyone ... welcome :))))</p>
-        </section>
-        <section class="main__photos">
-            <h2 class="main__title">our work</h2>
-            <div class="main__buttons-box">
-                <button class="main__slick-btn prev">←</button>
-            <button class="main__slick-btn next">→</button>
+    <main class="wrapper contact">
+        <h2 class="contact__title">contact</h2>
+        <div class="contact__container">
+            <div class="contact__get-in-touch">
+                <h3 class="contact__title">get in touch</h3>
+                <p>Katarzyna Podborska</p>
+                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+447720681125">+44 772 068 1125</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kasia4@mail.com">kasia4@mail.com</a></p>
+                <p>Or simply visit us at:</p>
+                <p>73 Town St, Armley, Leeds LS12 3HD</p>
             </div>
-            <div class="main__gallery img-carousel">
-                <div class="main__gallery--img1 img">
-                    <img src="./photos/mainphotos/119717831_3467654733254551_8563139771668989654_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img2 img">
-                    <img src="./photos/mainphotos/201737700_4241200532566630_3085258816620113741_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img3 img">
-                    <img src="./photos/mainphotos/258995917_4717955754891103_1327589092365347905_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img4 img">
-                    <img src="./photos/mainphotos/62319911_2405388022814566_6400310326914449408_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img5 img">
-                    <img src="./photos/mainphotos/69761986_2546446325375401_381043159129391104_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img6 img">
-                    <img src="./photos/mainphotos/70893419_2582879428398757_4310534907475525632_n.jpg" alt="">
-                </div>
-                <div class="main__gallery--img7 img">
-                    <img src="./photos/mainphotos/82450638_2830792326940798_5507149393557454848_n.jpg" alt="">
-                </div>
+            <div class="contact__form-box">
+                <h3 class="contact__title">contact form</h3>
+                <form action="">
+                    <label for="name">name</label>
+                    <input type="text" id="name" placeholder="Name">
+                    <label for="email">email</label>
+                    <input type="text" id="email" placeholder="E-mail ">
+                    <label for="number">phone number</label>
+                    <input type="number" id="number" placeholder="Phone Number">
+                    <label for="message">text</label>
+                    <textarea name="message" id="message" placeholder="Your message"></textarea>
+                    <p class="contact__error-info">Please fill in all the required fields.</p>
+                    <button class="contact__submit-btn" type="submit">send</button>
+                </form>
             </div>
-            <button class="main__slick-btn main__slick-btn--pause slick-pause">||</button>
-            <button class="main__slick-btn main__slick-btn--play slick-play">▶</button>
-            <p class="main__gallery-link">See more photos in <a href="./gallery.html">gallery</a></p>
-        </section>
-        <section class="main__reviews">
-            <h2 class="main__title">customer reviews</h2>
-        </section>
+            <div class="contact__map">
+                <h3 class="contact__title">Where to find us</h3>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2356.608811576392!2d-1.5947042841445405!3d53.796449680075874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795edc98ec47f3%3A0x8e787a5881db5674!2sLa%20Passion!5e0!3m2!1spl!2suk!4v1642073736925!5m2!1spl!2suk"
+                    style="border:0;" allowfullscreen="true" loading="lazy"></iframe>
+            </div>
+        </div>
     </main>
     <footer class="footer-section">
         <div class="wrapper footer">
@@ -144,9 +129,10 @@
                     <h3 class="footer__title">Social Media</h3>
                     <div class="footer__links">
                         <a href="https://www.facebook.com/lapassionhair/" target="_blank" rel="noreferrer"
-                        rel="noopener"><img src="./photos/facebook.png" alt="la passion facebook icon link"></a>
-                    <a href="https://www.instagram.com/la_passion_hair/" target="_blank" rel="noreferrer"
-                        rel="noopener"><img src="./photos/instagram-1675670_640.png" alt="la passion instagram icon link"></a>
+                            rel="noopener"><img src="./photos/facebook.png" alt="la passion facebook icon link"></a>
+                        <a href="https://www.instagram.com/la_passion_hair/" target="_blank" rel="noreferrer"
+                            rel="noopener"><img src="./photos/instagram-1675670_640.png"
+                                alt="la passion instagram icon link"></a>
                     </div>
                 </div>
             </div>

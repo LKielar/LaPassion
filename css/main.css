@@ -260,7 +260,7 @@ body {
 .header__shadow {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .header__text {
@@ -272,7 +272,7 @@ body {
 
 .header__title {
   margin: 3rem;
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
   font-weight: normal;
   font-style: italic;
 }
@@ -280,21 +280,24 @@ body {
 .header__description {
   margin: 3rem;
   font-size: clamp(1.6rem, 2vw, 2.2rem);
+  font-style: italic;
 }
 
 .main__title {
   font-weight: normal;
   text-align: center;
-  padding: 1em;
+  padding: 1.6em;
   text-transform: uppercase;
 }
 
 .main__abouttext {
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .main__gallery {
   background-image: url("../photos/hair-salon-big.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .main__gallery .img {
@@ -317,8 +320,8 @@ body {
 }
 
 .main__gallery .img img:hover {
-  -webkit-transform: scale(1.21);
-          transform: scale(1.21);
+  -webkit-transform: scale(1.18);
+          transform: scale(1.18);
 }
 
 .main__slick-btn {
@@ -354,6 +357,17 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 0 1em 1em;
+}
+
+.main__gallery-link {
+  margin-right: 1em;
+  text-align: right;
+}
+
+.main__gallery-link a {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: gold;
 }
 
 .footer-section {
@@ -392,21 +406,29 @@ body {
   padding: 0.2em;
 }
 
+.footer-section .footer__contact p a {
+  color: gold;
+  text-decoration: none;
+}
+
 .footer-section .footer__contact .fas {
   padding-right: 0.4em;
   font-size: 1.4rem;
 }
 
-.footer-section .footer__links {
-  width: 100%;
-  text-align: center;
-  padding-bottom: 1em;
+.footer-section .footer__social-media img {
+  width: 2.2em;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
-.footer-section .footer__links img {
-  width: 3.4rem;
-  border-radius: 50%;
-  margin: 0 0.4em;
+.footer-section .footer__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .footer-section .footer__text-box {
@@ -417,6 +439,72 @@ body {
 .footer-section .footer__text {
   text-align: center;
   padding: 1em;
+}
+
+.contact {
+  padding: 1em;
+}
+
+.contact__title {
+  padding: 1em;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.contact__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.contact__get-in-touch p {
+  padding: 0.2em;
+}
+
+.contact__get-in-touch p a {
+  color: gold;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.contact__get-in-touch p a::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  display: block;
+  background: gold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.contact__get-in-touch p a:hover::after {
+  width: 100%;
+}
+
+.contact__form-box form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact__map {
+  width: 100%;
+  height: 500px;
+}
+
+.contact__map iframe {
+  width: 100%;
+  height: 85%;
 }
 
 @media (min-width: 576px) {

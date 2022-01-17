@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/mixinHover.scss"
+    ],
+    "names": [],
+    "file": "mixinHover.css"
+}
