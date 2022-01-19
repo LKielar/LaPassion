@@ -1,3 +1,5 @@
+@import 'mixinHover';
+// RESET **********
 *,
 *::after,
 *::before {
@@ -5,7 +7,6 @@
 	margin: 0;
 	padding: 0;
 }
-@import 'mixinHover';
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
@@ -22,6 +23,23 @@ body {
 	width: 100%;
 	max-width: 1400px;
 	margin: 0 auto;
+}
+// h2 title for all pages *****
+.title {
+	position: relative;
+	padding: 1.6em;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-align: center;
+}
+.title::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 3px;
+	height: 20%;
+	transform: translate(-20px, -50%);
+	background: gold;
 }
 
 // NAV section **********
@@ -57,23 +75,23 @@ body {
 				color: white;
 				font-size: clamp(1.6rem, 2vw, 2rem);
 				transition: color 0.4s;
-			}
-			.navbar-link::before {
-				content: '';
-				position: absolute;
-				bottom: 8px;
-				left: 0;
-				background-color: gold;
-				width: 0;
-				height: 1px;
-				transition: background-color 0.4s, width 0.4s;
-			}
-			.navbar-link:hover {
-				color: gold;
-			}
-			.navbar-link:hover::before {
-				width: 100%;
-				background-color: gold;
+				&::before {
+					content: '';
+					position: absolute;
+					bottom: 8px;
+					left: 0;
+					background-color: gold;
+					width: 0;
+					height: 1px;
+					transition: background-color 0.4s, width 0.4s;
+				}
+				&:hover {
+					color: gold;
+				}
+				&:hover::before {
+					width: 100%;
+					background-color: gold;
+				}
 			}
 		}
 		&__burger-btn {
@@ -196,28 +214,24 @@ body {
 		top: 50%;
 		transform: translateY(-50%);
 	}
-	&__title {
-		margin: 3rem;
-		font-size: clamp(2.8rem, 6vw, 5.2rem);
-		font-weight: normal;
-		font-style: italic;
-	}
+	&__title,
 	&__description {
 		margin: 3rem;
-		font-size: clamp(1.6rem, 2vw, 2.2rem);
 		font-style: italic;
+		text-shadow: 2px 2px 4px black;
+	}
+	&__title {
+		font-size: clamp(2.8rem, 6vw, 5.2rem);
+		font-weight: normal;
+	}
+	&__description {
+		font-size: clamp(1.6rem, 2vw, 2.2rem);
 	}
 }
 
 // MAIN section **********
 
 .main {
-	&__title {
-		font-weight: normal;
-		text-align: center;
-		padding: 1.6em;
-		text-transform: uppercase;
-	}
 	&__abouttext {
 		padding: 0 1em;
 	}
@@ -276,8 +290,23 @@ body {
 		text-align: right;
 		a {
 			text-transform: uppercase;
-			text-decoration: none;
-			color: gold;
+			@include hover;
+		}
+	}
+	&__review-box {
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+	}
+	&__review {
+		margin: 1em;
+		padding: 1em;
+		height: 100%;
+		background-color: #000;
+		font-style: italic;
+		border-radius: 5px;
+		figcaption {
+			font-weight: bold;
 		}
 	}
 }
@@ -306,10 +335,10 @@ body {
 			p {
 				padding: 0.2em;
 				a {
-					color: gold;
-					text-decoration: none;
+					@include hover;
 				}
 			}
+
 			.fas {
 				padding-right: 0.4em;
 				font-size: 1.4rem;
@@ -325,6 +354,12 @@ body {
 		&__links {
 			display: flex;
 			justify-content: space-evenly;
+			a {
+				transition: transform 0.3s;
+				&:hover {
+					transform: scale(1.2);
+				}
+			}
 		}
 		&__text-box {
 			width: 100%;
@@ -340,16 +375,18 @@ body {
 // subpage CONTACT **********
 .contact {
 	padding: 1em;
-	&__title {
-		padding: 1em;
-		font-weight: normal;
-		text-transform: uppercase;
-		text-align: center;
-	}
 	&__container {
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
+	}
+	&__title {
+		padding: 1.4em;
+		text-transform: uppercase;
+		text-align: center;
+	}
+	&__address {
+		font-weight: bold;
 	}
 	&__get-in-touch {
 		p {
@@ -360,10 +397,39 @@ body {
 		}
 	}
 	&__form-box {
-		form {
-			display: flex;
-			flex-direction: column;
+		min-width: 280px;
+		max-width: 700px;
+		width: 80%;
+	}
+	&__form {
+		display: flex;
+		flex-direction: column;
+		label {
+			text-transform: capitalize;
+			padding-top: 0.6em;
+			&:first-child {
+				padding-top: 0.2em;
+			}
 		}
+		input, textarea {
+			padding: 0.4em;
+			font-family: 'Montserrat';
+		}
+		textarea {
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 2.2em;
+			max-height: 40vh;
+		}
+	}
+	&__error-info {
+		display: none;
+	}
+	&__submit-btn {
+		padding: 0.2em;
+		margin: 1em auto;
+		width: 10em;
+		
 	}
 	&__map {
 		width: 100%;
@@ -406,6 +472,10 @@ body {
 		&__slick-btn:hover {
 			background-color: #333;
 			color: gold;
+		}
+		&__review {
+			width: 45%;
+			align-items: center;
 		}
 	}
 	.footer-section {
