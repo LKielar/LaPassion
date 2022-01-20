@@ -1,4 +1,5 @@
 @import 'mixinHover';
+@import 'mixinColors';
 // RESET **********
 *,
 *::after,
@@ -15,8 +16,8 @@ html {
 body {
 	font-size: 1.6rem;
 	font-family: 'Montserrat', sans-serif;
-	background-color: rgb(20, 20, 20);
-	color: #ddd;
+	background-color: rgb(30, 30, 30);
+	color: $light;
 }
 
 .wrapper {
@@ -47,7 +48,7 @@ body {
 .nav-section {
 	position: sticky;
 	top: 0;
-	background-color: black;
+	background-color: $black;
 	z-index: 15;
 	.nav {
 		position: relative;
@@ -55,42 +56,42 @@ body {
 		justify-content: space-between;
 		align-items: center;
 		&__logo {
-			font-family: 'Pinyon Script', cursive;
 			padding: 0.6em;
+			font-family: 'Pinyon Script', cursive;
 			a {
-				font-size: clamp(3.4rem, 6vw, 7rem);
-				text-decoration: none;
-				color: #ddd;
 				margin-left: 0.5em;
+				font-size: clamp(3.4rem, 6vw, 7rem);
+				color: $light;
+				text-decoration: none;
 			}
 		}
 		&__navbar {
 			display: none;
-			text-transform: uppercase;
 			margin-right: 1em;
+			text-transform: uppercase;
 			.navbar-link {
 				position: relative;
 				padding: 1.4rem;
-				text-decoration: none;
-				color: white;
 				font-size: clamp(1.6rem, 2vw, 2rem);
+				color: white;
+				text-decoration: none;
 				transition: color 0.4s;
 				&::before {
 					content: '';
 					position: absolute;
 					bottom: 8px;
 					left: 0;
-					background-color: gold;
+					background-color: $gold;
 					width: 0;
 					height: 1px;
 					transition: background-color 0.4s, width 0.4s;
 				}
 				&:hover {
-					color: gold;
+					color: $gold;
 				}
 				&:hover::before {
 					width: 100%;
-					background-color: gold;
+					background-color: $gold;
 				}
 			}
 		}
@@ -100,12 +101,12 @@ body {
 			border: none;
 			z-index: 10;
 			i {
-				color: #ddd;
 				font-size: 2.2rem;
+				color: $light;
 			}
 			&:active {
 				i {
-					color: gold;
+					color: $gold;
 				}
 			}
 		}
@@ -114,39 +115,39 @@ body {
 			display: flex;
 			flex-direction: row-reverse;
 			justify-content: space-around;
+			width: 100%;
 			top: 0;
 			right: 0;
-			width: 100%;
-			background-color: black;
+			background-color: $black;
 			transform: translateX(100%);
 			opacity: 0;
 			z-index: 50;
 			img {
 				margin-left: 2em;
-				align-self: center;
 				width: 25%;
 				max-width: 200px;
 				height: 20%;
+				align-self: center;
 				transform: rotate(90deg);
 			}
 		}
 		&__mobile-btn {
-			align-self: flex-start;
 			margin-top: 1em;
 			padding: 1em;
+			align-self: flex-start;
 			background: none;
 			border: none;
-			color: #ddd;
+			color: $light;
 			i {
 				font-size: 2.4rem;
 				&:active {
-					color: gold;
+					color: $gold;
 				}
 			}
 		}
 		&__mobile-links {
-			list-style: none;
 			padding: 1em;
+			list-style: none;
 			li {
 				padding: 1em 0;
 			}
@@ -154,10 +155,10 @@ body {
 				padding: 0.7em;
 				text-decoration: none;
 				text-transform: uppercase;
-				color: #ddd;
+				color: $light;
 			}
 			.mobile-link:active {
-				color: gold;
+				color: $gold;
 			}
 		}
 	}
@@ -213,19 +214,19 @@ body {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-	}
-	&__title,
-	&__description {
-		margin: 3rem;
-		font-style: italic;
-		text-shadow: 2px 2px 4px black;
-	}
-	&__title {
-		font-size: clamp(2.8rem, 6vw, 5.2rem);
-		font-weight: normal;
-	}
-	&__description {
-		font-size: clamp(1.6rem, 2vw, 2.2rem);
+		&-title,
+		&-description {
+			margin: 3rem;
+			font-style: italic;
+			text-shadow: 2px 2px 4px black;
+		}
+		&-title {
+			font-size: clamp(2.8rem, 6vw, 5.2rem);
+			font-weight: normal;
+		}
+		&-description {
+			font-size: clamp(1.6rem, 2vw, 2.2rem);
+		}
 	}
 }
 
@@ -242,7 +243,7 @@ body {
 		.img {
 			margin: 1em;
 			padding: 1em;
-			background-color: #ddd;
+			background-color: $light;
 			border-radius: 6px;
 			img {
 				object-fit: cover;
@@ -259,9 +260,9 @@ body {
 	&__slick-btn {
 		background: none;
 		padding: 0.3em 1em;
-		color: #ddd;
+		color: $light;
 		border: none;
-		box-shadow: 0 0 4px #ddd;
+		box-shadow: 0 0 4px $light;
 		border-radius: 3px;
 		transition: background-color 0.3s, color 0.3s;
 		cursor: pointer;
@@ -275,7 +276,7 @@ body {
 		&--play:focus,
 		&--pause:focus,
 		&:active {
-			background-color: #333;
+			background-color: $dark;
 			color: gold;
 		}
 	}
@@ -302,7 +303,7 @@ body {
 		margin: 1em;
 		padding: 1em;
 		height: 100%;
-		background-color: #000;
+		background-color: $black;
 		font-style: italic;
 		border-radius: 5px;
 		figcaption {
@@ -314,7 +315,7 @@ body {
 // FOOTER section **********
 
 .footer-section {
-	background-color: black;
+	background-color: $black;
 	.footer {
 		&__boxes {
 			display: flex;
@@ -405,25 +406,32 @@ body {
 		display: flex;
 		flex-direction: column;
 		label {
-			text-transform: capitalize;
 			padding-top: 0.6em;
 			&:first-child {
 				padding-top: 0.2em;
+			}
+			span {
+				font-size: 1.2rem;
 			}
 		}
 		input, textarea {
 			padding: 0.4em;
 			font-family: 'Montserrat';
+			border-radius: 5px;
 		}
 		textarea {
-			min-width: 100%;
-			max-width: 100%;
+			resize: vertical;
 			min-height: 2.2em;
-			max-height: 40vh;
+			max-height: 35vh;
+		}
+		.error-outline {
+			border: 3px solid tomato;
 		}
 	}
 	&__error-info {
-		display: none;
+		// display: none;
+		padding-top: .4em;
+		color: tomato;
 	}
 	&__submit-btn {
 		padding: 0.2em;
@@ -470,8 +478,8 @@ body {
 	}
 	.main {
 		&__slick-btn:hover {
-			background-color: #333;
-			color: gold;
+			background-color: $dark;
+			color: $gold;
 		}
 		&__review {
 			width: 45%;

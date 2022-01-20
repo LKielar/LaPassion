@@ -15,7 +15,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
-  background-color: #141414;
+  background-color: #1e1e1e;
   color: #ddd;
 }
 
@@ -66,29 +66,29 @@ body {
 }
 
 .nav-section .nav__logo {
-  font-family: 'Pinyon Script', cursive;
   padding: 0.6em;
+  font-family: 'Pinyon Script', cursive;
 }
 
 .nav-section .nav__logo a {
-  font-size: clamp(3.4rem, 6vw, 7rem);
-  text-decoration: none;
-  color: #ddd;
   margin-left: 0.5em;
+  font-size: clamp(3.4rem, 6vw, 7rem);
+  color: #ddd;
+  text-decoration: none;
 }
 
 .nav-section .nav__navbar {
   display: none;
-  text-transform: uppercase;
   margin-right: 1em;
+  text-transform: uppercase;
 }
 
 .nav-section .nav__navbar .navbar-link {
   position: relative;
   padding: 1.4rem;
-  text-decoration: none;
-  color: white;
   font-size: clamp(1.6rem, 2vw, 2rem);
+  color: white;
+  text-decoration: none;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
 }
@@ -122,8 +122,8 @@ body {
 }
 
 .nav-section .nav__burger-btn i {
-  color: #ddd;
   font-size: 2.2rem;
+  color: #ddd;
 }
 
 .nav-section .nav__burger-btn:active i {
@@ -141,9 +141,9 @@ body {
           flex-direction: row-reverse;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  width: 100%;
   top: 0;
   right: 0;
-  width: 100%;
   background-color: black;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
@@ -153,21 +153,21 @@ body {
 
 .nav-section .nav__mobile img {
   margin-left: 2em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   width: 25%;
   max-width: 200px;
   height: 20%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
 
 .nav-section .nav__mobile-btn {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
   margin-top: 1em;
   padding: 1em;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   background: none;
   border: none;
   color: #ddd;
@@ -182,8 +182,8 @@ body {
 }
 
 .nav-section .nav__mobile-links {
-  list-style: none;
   padding: 1em;
+  list-style: none;
 }
 
 .nav-section .nav__mobile-links li {
@@ -289,19 +289,23 @@ body {
           transform: translateY(-50%);
 }
 
-.header__title, .header__description {
+.header__text-title, .header__text-description {
   margin: 3rem;
   font-style: italic;
   text-shadow: 2px 2px 4px black;
 }
 
-.header__title {
+.header__text-title {
   font-size: clamp(2.8rem, 6vw, 5.2rem);
   font-weight: normal;
 }
 
-.header__description {
+.header__text-description {
   font-size: clamp(1.6rem, 2vw, 2.2rem);
+}
+
+.main__aboutus {
+  scroll-margin-top: 100px;
 }
 
 .main__abouttext {
@@ -414,7 +418,7 @@ body {
   margin: 1em;
   padding: 1em;
   height: 100%;
-  background-color: #000;
+  background-color: black;
   font-style: italic;
   border-radius: 5px;
 }
@@ -587,7 +591,6 @@ body {
 }
 
 .contact__form label {
-  text-transform: capitalize;
   padding-top: 0.6em;
 }
 
@@ -595,20 +598,29 @@ body {
   padding-top: 0.2em;
 }
 
+.contact__form label span {
+  font-size: 1.2rem;
+}
+
 .contact__form input, .contact__form textarea {
   padding: 0.4em;
   font-family: 'Montserrat';
+  border-radius: 5px;
 }
 
 .contact__form textarea {
-  min-width: 100%;
-  max-width: 100%;
+  resize: vertical;
   min-height: 2.2em;
-  max-height: 40vh;
+  max-height: 35vh;
+}
+
+.contact__form .error-outline {
+  border: 3px solid tomato;
 }
 
 .contact__error-info {
-  display: none;
+  padding-top: .4em;
+  color: tomato;
 }
 
 .contact__submit-btn {

@@ -4,10 +4,14 @@ const mobileNav = document.querySelector('.nav__mobile');
 const links = document.querySelectorAll('.mobile-link');
 
 // NAV*****
-const mobileNavHandler = () => {
+const openNav = () => {
 	mobileNav.classList.remove('closeNavAnimation');
 	mobileNav.classList.add('openNavAnimation');
 	deleteAnimation();
+};
+const closeNav = () => {
+	mobileNav.classList.remove('openNavAnimation');
+	mobileNav.classList.add('closeNavAnimation');
 };
 const deleteAnimation = () => {
 	links.forEach((link) =>
@@ -17,58 +21,27 @@ const deleteAnimation = () => {
 		})
 	);
 };
-const closeNav = () => {
-	mobileNav.classList.remove('openNavAnimation');
-	mobileNav.classList.add('closeNavAnimation');
-};
+// ABOUT US scrollspy*****
 
-// SLIDER*****
-
-const sliderImages = document.querySelectorAll('.img');
-const leftBtn = document.querySelector('.left');
-const rightBtn = document.querySelector('.right');
-let sliderPosition = 0;
-
-for (const img of sliderImages) {
-	console.log(`Zdjęcie nr ${img}`);
+const navHeight = document.querySelector('.nav-section')
+const scrollSection = document.querySelector('.main__aboutus')
+const scrollHandler = () => {
+	const currentHeight = navHeight.clientHeight
+	scrollSection.style.scrollMarginTop = `${currentHeight + 1}px`;
+	console.log(currentHeight);
 }
-const sliderRight = () => {
-	++sliderPosition;
-	sliderImages.forEach(
-		(img) => (img.style.transform = `translateX(-${sliderPosition}00%)`)
-	);
-	if (sliderPosition === 7) {
-		rightBtn.disabled = true;
-		rightBtn.classList.add('disabled');
-	}
-	resetDisabledBtns()
-};
-const sliderLeft = () => {
-	--sliderPosition;
-	sliderImages.forEach(
-		(img) => (img.style.transform = `translateX(-${sliderPosition}00%)`)
-		);
-	if (sliderPosition === 0) {
-		leftBtn.disabled = true;
-		leftBtn.classList.add('disabled');
-	} 
-	resetDisabledBtns()
-};
-const resetDisabledBtns = () => {
-	if (sliderPosition < 7) {
-		rightBtn.disabled = false;
-		rightBtn.classList.remove('disabled')
-	}
-	if (sliderPosition > 0) {
-		leftBtn.disabled = false;
-		leftBtn.classList.remove('disabled')
-	}
+scrollHandler()
 
-}
-// leftBtn.addEventListener('click', sliderLeft)
-// rightBtn.addEventListener('click', sliderRight);
+// FOOTER DATE *****
+const currentYear = document.querySelector('.year');
+
+const getCurrentYear = () => {
+	const year = new Date().getFullYear();
+	currentYear.textContent = year;
+};
+getCurrentYear();
 
 // EventListeners *****
 
-burgerBtn.addEventListener('click', mobileNavHandler);
+burgerBtn.addEventListener('click', openNav);
 mobileBtn.addEventListener('click', closeNav);
