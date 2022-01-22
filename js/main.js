@@ -3,7 +3,7 @@ const mobileBtn = document.querySelector('.nav__mobile-btn');
 const mobileNav = document.querySelector('.nav__mobile');
 const links = document.querySelectorAll('.mobile-link');
 
-// NAV*****
+// NAV **********
 const openNav = () => {
 	mobileNav.classList.remove('closeNavAnimation');
 	mobileNav.classList.add('openNavAnimation');
@@ -22,17 +22,19 @@ const deleteAnimation = () => {
 	);
 };
 // ABOUT US scrollspy*****
-
-const navHeight = document.querySelector('.nav-section')
-const scrollSection = document.querySelector('.main__aboutus')
+const navLink = document.querySelectorAll('.scroll');
+const nav = document.querySelector('.nav-section');
+const aboutUs = document.getElementById('aboutus');
+const navHeight = nav.scrollHeight;
 const scrollHandler = () => {
-	const currentHeight = navHeight.clientHeight
-	scrollSection.style.scrollMarginTop = `${currentHeight + 1}px`;
-	console.log(currentHeight);
-}
-scrollHandler()
+	aboutUs.style.scrollMarginTop = `${navHeight - 1}px`;
+};
 
-// FOOTER DATE *****
+navLink.forEach((link) => {
+	link.addEventListener('click', scrollHandler);
+});
+
+// FOOTER DATE **********
 const currentYear = document.querySelector('.year');
 
 const getCurrentYear = () => {
@@ -41,7 +43,80 @@ const getCurrentYear = () => {
 };
 getCurrentYear();
 
-// EventListeners *****
+// FORM **********
+const allInputs = document.querySelectorAll('.input');
+const inputName = document.querySelector('#name');
+const inputEmail = document.querySelector('#email');
+const inputPhone = document.querySelector('#number');
+const inputText = document.querySelector('#message');
+const errorMsg = document.querySelector('.error-info');
+const submitBtn = document.querySelector('.submit-btn');
+// MODAl
+const modal = document.querySelector('.modal');
+const submittedIconCircle = document.querySelector('.circle');
+const submittedIconCheck = document.querySelector('.check');
+
+const validateEmail =(email) => { 
+	const regex = /^(([^<>()[]\\.,;:\s@\"]+(\.[^<>()[]\\.,;:\s@\"]+)*)|(\".+\"))@(([[0-9]{1,3}\‌​.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
+	return regex.test(email.value); 
+}
+// submit form function
+const formHandler = () => {
+	if (
+		inputName.value != '' &&
+		inputEmail.value != '' &&
+		inputText.value != ''
+	) {
+		validateEmail(inputEmail)
+		resetForm();
+		modal.style.visibility = 'visible';
+		submittedIconCircle.classList.add('active-dash-circle');
+		submittedIconCheck.classList.add('active-check');
+		setTimeout(modalHandler, 3000);
+	} else {
+		errorMsg.style.display = 'block';
+		allInputs.forEach((input) => {
+			if (input.value === '') {
+				input.classList.add('error-outline');
+			}
+		});
+	}
+};
+// show modal after submit
+const modalHandler = () => {
+	modal.style.visibility = 'hidden';
+};
+// reset inputs and error msg after submit
+const resetForm = () => {
+	allInputs.forEach((input) => {
+		input.value = '';
+		input.classList.remove('error-outline');
+	});
+	inputPhone.value = '';
+	errorMsg.style.display = 'none';
+};
+// clear inputs and error msg when typing ----------
+const clearInputs = () => {
+	allInputs.forEach((input) => {
+		if (input.value != '') {
+			input.classList.remove('error-outline');
+		}
+	});
+	errorMsg.style.display = 'none';
+	submittedIconCircle.classList.remove('active-dash-circle');
+		submittedIconCheck.classList.remove('active-check');
+};
+allInputs.forEach((input) => {
+	input.oninput = clearInputs;
+});
+//  -----------
+if (submitBtn != null) {
+	submitBtn.addEventListener('click', (e) => {
+		e.preventDefault();
+		formHandler();
+	});
+}
+// EventListeners **********
 
 burgerBtn.addEventListener('click', openNav);
 mobileBtn.addEventListener('click', closeNav);

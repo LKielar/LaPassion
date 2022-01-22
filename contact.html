@@ -51,20 +51,29 @@
                 <p>Or simply visit us at:</p>
                 <p class="contact__address">73 Town St, Armley, Leeds LS12 3HD</p>
             </div>
-            <div class="contact__form-box">
+            <div class="contact__box">
                 <h3 class="contact__title">contact form</h3>
-                <form class="contact__form" action="">
+                <form class="contact__box-form">
                     <label for="name">Your name</label>
-                    <input type="text" id="name" placeholder="Name..">
+                    <input type="text" class="input" id="name" placeholder="Name..">
                     <label for="email">E-mail address</label>
-                    <input type="text" id="email" placeholder="E-mail..">
+                    <input type="text" class="input" id="email" placeholder="E-mail..">
                     <label for="number">Phone number <span>(Optional)</span></label>
                     <input type="number" id="number" placeholder="Phone Number..">
                     <label for="message">Message to us</label>
-                    <textarea name="message" id="message" placeholder="Your message.."></textarea>
-                    <p class="contact__error-info">Please fill in all the required fields.</p>
-                    <button class="contact__submit-btn" type="submit">Send form</button>
+                    <textarea name="message" class="input" id="message" placeholder="Your message.."></textarea>
+                    <p class="error-info">Please fill in all the required fields.</p>
+                    <button class="submit-btn" type="submit">Send form</button>
                 </form>
+                <div class="contact__box-modal modal">
+                    <p>Successfully sent!</p>
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                        <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10"
+                            cx="65.1" cy="65.1" r="62.1" />
+                        <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round"
+                            stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
+                    </svg>
+                </div>
             </div>
             <div class="contact__map">
                 <h3 class="contact__title">Where to find us</h3>

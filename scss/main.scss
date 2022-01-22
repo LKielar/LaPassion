@@ -231,16 +231,15 @@ body {
 }
 
 // MAIN section **********
-
 .main {
-	&__abouttext {
+	&__about-text {
 		padding: 0 1em;
 	}
 	&__gallery {
 		background-image: url('../photos/hair-salon-big.jpg');
 		background-position: center;
 		background-size: cover;
-		.img {
+		&-img {
 			margin: 1em;
 			padding: 1em;
 			background-color: $light;
@@ -256,6 +255,19 @@ body {
 				}
 			}
 		}
+		&-link {
+			margin-right: 1em;
+			text-align: right;
+			a {
+				text-transform: uppercase;
+				@include hover;
+			}
+		}
+	}
+	&__buttons-box {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 1em 1em;
 	}
 	&__slick-btn {
 		background: none;
@@ -281,19 +293,6 @@ body {
 		}
 	}
 
-	&__buttons-box {
-		display: flex;
-		justify-content: space-between;
-		margin: 0 1em 1em;
-	}
-	&__gallery-link {
-		margin-right: 1em;
-		text-align: right;
-		a {
-			text-transform: uppercase;
-			@include hover;
-		}
-	}
 	&__review-box {
 		display: flex;
 		justify-content: space-evenly;
@@ -397,47 +396,77 @@ body {
 			}
 		}
 	}
-	&__form-box {
-		min-width: 280px;
-		max-width: 700px;
-		width: 80%;
-	}
-	&__form {
+	&__box {
+		position: relative;
+		min-width: 16em;
+		max-width: 40em;
+		width: 100%;
 		display: flex;
 		flex-direction: column;
-		label {
-			padding-top: 0.6em;
-			&:first-child {
-				padding-top: 0.2em;
+		align-items: center;
+		&-form {
+			display: flex;
+			flex-direction: column;
+			min-width: 50%;
+			width: 100%;
+			label {
+				padding-top: 0.6em;
+				&:first-child {
+					padding-top: 0.2em;
+				}
+				span {
+					font-size: 1.2rem;
+				}
 			}
-			span {
-				font-size: 1.2rem;
+			input,
+			textarea {
+				padding: 0.4em;
+				font-family: 'Montserrat';
+				border-radius: 5px;
+			}
+			textarea {
+				resize: vertical;
+				min-height: 2.2em;
+				max-height: 35vh;
+			}
+			.error-info {
+				display: none;
+				padding-top: 0.4em;
+				color: tomato;
+			}
+			.error-outline {
+				border: 3px solid tomato;
+			}
+			.submit-btn {
+				padding: 0.2em;
+				margin: 1em auto;
+				width: 10em;
 			}
 		}
-		input, textarea {
-			padding: 0.4em;
-			font-family: 'Montserrat';
-			border-radius: 5px;
+		&-modal {
+			visibility: hidden;
+			position: absolute;
+			padding: 1em;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			background-color: #fff;
+			border: 1px solid $dark;
+			border-radius: 6px;
+			p {
+				color: $black;
+			}
+			svg {
+				width: 30px;
+				display: block;
+				margin: 10px auto 0;
+			}
 		}
-		textarea {
-			resize: vertical;
-			min-height: 2.2em;
-			max-height: 35vh;
-		}
-		.error-outline {
-			border: 3px solid tomato;
-		}
-	}
-	&__error-info {
-		// display: none;
-		padding-top: .4em;
-		color: tomato;
-	}
-	&__submit-btn {
-		padding: 0.2em;
-		margin: 1em auto;
-		width: 10em;
-		
 	}
 	&__map {
 		width: 100%;
@@ -446,6 +475,64 @@ body {
 			width: 100%;
 			height: 85%;
 		}
+	}
+}
+// MODAL **********
+.path {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 0;
+	&.check {
+		stroke-dashoffset: -100;
+	}
+}
+.active-dash-circle {
+	animation: dash 1s ease-in-out;
+}
+.active-check {
+	animation: dash-check 1s 0.35s ease-in-out forwards;
+}
+
+.success {
+	color: #2c8300;
+}
+
+@keyframes dash {
+	0% {
+		stroke-dashoffset: 1000;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes dash-check {
+	0% {
+		stroke-dashoffset: -100;
+	}
+	100% {
+		stroke-dashoffset: 900;
+	}
+}
+
+.rotate-arrow {
+	transform: rotate(180deg) translateX(-25%);
+}
+.animate-guide-left {
+	animation: 0.7s guideLeft forwards;
+}
+.animate-guide-right {
+	animation: 0.7s guideRight forwards;
+}
+@keyframes guideLeft {
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes guideRight {
+	to {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
 
@@ -496,6 +583,13 @@ body {
 			&__links {
 				width: auto;
 			}
+		}
+	}
+}
+@media (min-width: 992px) {
+	.contact {
+		&__form {
+			width: 80%;
 		}
 	}
 }
