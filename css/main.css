@@ -63,6 +63,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 85px;
 }
 
 .nav-section .nav__logo {
@@ -72,7 +73,7 @@ body {
 
 .nav-section .nav__logo a {
   margin-left: 0.5em;
-  font-size: clamp(3.4rem, 6vw, 7rem);
+  font-size: clamp(3.8rem, 6vw, 7rem);
   color: #ddd;
   text-decoration: none;
 }
@@ -85,12 +86,16 @@ body {
 
 .nav-section .nav__navbar .navbar-link {
   position: relative;
-  padding: 1.4rem;
+  padding: 1.4rem 1rem;
   font-size: clamp(1.6rem, 2vw, 2rem);
-  color: white;
+  color: #ddd;
   text-decoration: none;
   -webkit-transition: color 0.4s;
   transition: color 0.4s;
+}
+
+.nav-section .nav__navbar .navbar-link:hover {
+  color: gold;
 }
 
 .nav-section .nav__navbar .navbar-link::before {
@@ -105,13 +110,13 @@ body {
   transition: background-color 0.4s, width 0.4s;
 }
 
-.nav-section .nav__navbar .navbar-link:hover {
-  color: gold;
-}
-
 .nav-section .nav__navbar .navbar-link:hover::before {
   width: 100%;
   background-color: gold;
+}
+
+.nav-section .nav__navbar .active {
+  color: gold;
 }
 
 .nav-section .nav__burger-btn {
@@ -265,7 +270,9 @@ body {
 
 .header {
   position: relative;
-  height: 80vh;
+  top: 0;
+  height: calc(100vh - 85px);
+  scroll-margin-top: 84px;
 }
 
 .header__image {
@@ -304,27 +311,40 @@ body {
   font-size: clamp(1.6rem, 2vw, 2.2rem);
 }
 
+.main__aboutus {
+  scroll-margin-top: 84px;
+}
+
 .main__about-text {
   padding: 0 1em;
 }
 
+.main__photos {
+  scroll-margin-top: 84px;
+}
+
 .main__gallery {
+  position: relative;
   background-image: url("../photos/hair-salon-big.jpg");
   background-position: center;
   background-size: cover;
+  z-index: 5;
 }
 
 .main__gallery-img {
-  margin: 1em;
+  margin: 1em 0.5em;
   padding: 1em;
-  background-color: #ddd;
   border-radius: 6px;
 }
 
 .main__gallery-img img {
   -o-object-fit: cover;
      object-fit: cover;
+  width: 100%;
   max-width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 20px 1px black;
+          box-shadow: 0 0 20px 1px black;
   border: 1px solid black;
   border-radius: 5px;
   -webkit-transition: -webkit-transform 0.3s;
@@ -334,11 +354,12 @@ body {
 }
 
 .main__gallery-img img:hover {
-  -webkit-transform: scale(1.18);
-          transform: scale(1.18);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .main__gallery-link {
+  margin-top: 0.3em;
   margin-right: 1em;
   text-align: right;
 }
@@ -362,6 +383,14 @@ body {
 
 .main__gallery-link a:hover::after {
   width: 100%;
+}
+
+.main__gallery::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .main__buttons-box {
@@ -399,13 +428,17 @@ body {
   color: gold;
 }
 
+.main__reviews {
+  scroll-margin-top: 84px;
+}
+
 .main__review-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -570,6 +603,17 @@ body {
   width: 100%;
 }
 
+.contact__facebook {
+  margin: 1em 1em 1em 0;
+}
+
+.contact__facebook img {
+  margin-right: 0.5em;
+  width: 2rem;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .contact__box {
   position: relative;
   min-width: 16em;
@@ -613,9 +657,36 @@ body {
 
 .contact__box-form input,
 .contact__box-form textarea {
+  margin: 0.5em 0;
   padding: 0.4em;
   font-family: 'Montserrat';
-  border-radius: 5px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid gold;
+  color: #ddd;
+}
+
+.contact__box-form input:-webkit-autofill,
+.contact__box-form input:-webkit-autofill:hover,
+.contact__box-form input:-webkit-autofill:focus,
+.contact__box-form input:-webkit-autofill:active {
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 30px #1e1e1e inset;
+}
+
+.contact__box-form input:-webkit-autofill {
+  -webkit-text-fill-color: #ddd;
+}
+
+.contact__box-form input::-webkit-outer-spin-button,
+.contact__box-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.contact__box-form input[type='number'] {
+  -moz-appearance: textfield;
+  /* Firefox */
 }
 
 .contact__box-form textarea {
@@ -624,7 +695,8 @@ body {
   max-height: 35vh;
 }
 
-.contact__box-form .error-info {
+.contact__box-form .error-info,
+.contact__box-form .error-email {
   display: none;
   padding-top: 0.4em;
   color: tomato;
@@ -635,9 +707,21 @@ body {
 }
 
 .contact__box-form .submit-btn {
-  padding: 0.2em;
-  margin: 1em auto;
-  width: 10em;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  padding: 0.8em;
+  margin: 1em 0 1em;
+  width: 7em;
+  font-weight: bold;
+  border: none;
+  background-color: gold;
+  color: black;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.contact__box-form .submit-btn:hover {
+  background-color: #8f833e;
 }
 
 .contact__box-modal {
@@ -697,13 +781,13 @@ body {
 }
 
 .active-dash-circle {
-  -webkit-animation: dash 1s ease-in-out;
-          animation: dash 1s ease-in-out;
+  -webkit-animation: dash 1.4s ease-in-out;
+          animation: dash 1.4s ease-in-out;
 }
 
 .active-check {
-  -webkit-animation: dash-check 1s 0.35s ease-in-out forwards;
-          animation: dash-check 1s 0.35s ease-in-out forwards;
+  -webkit-animation: dash-check 1.4s 0.35s ease-in-out forwards;
+          animation: dash-check 1.4s 0.35s ease-in-out forwards;
 }
 
 .success {
@@ -744,11 +828,6 @@ body {
   100% {
     stroke-dashoffset: 900;
   }
-}
-
-.rotate-arrow {
-  -webkit-transform: rotate(180deg) translateX(-25%);
-          transform: rotate(180deg) translateX(-25%);
 }
 
 .animate-guide-left {
@@ -798,6 +877,12 @@ body {
     -webkit-transform: rotate(0);
             transform: rotate(0);
   }
+  .contact__form {
+    width: 70%;
+  }
+  .contact__box {
+    margin: 0 2em;
+  }
 }
 
 @media (min-width: 768px) {
@@ -839,7 +924,13 @@ body {
 
 @media (min-width: 992px) {
   .contact__form {
-    width: 80%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-section .nav__navbar .navbar-link {
+    padding: 1.4rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -21,19 +21,37 @@ const deleteAnimation = () => {
 		})
 	);
 };
-// ABOUT US scrollspy*****
-const navLink = document.querySelectorAll('.scroll');
-const nav = document.querySelector('.nav-section');
-const aboutUs = document.getElementById('aboutus');
-const navHeight = nav.scrollHeight;
-const scrollHandler = () => {
-	aboutUs.style.scrollMarginTop = `${navHeight - 1}px`;
-};
 
-navLink.forEach((link) => {
-	link.addEventListener('click', scrollHandler);
+// Intersection Observer *****
+const sections = document.querySelectorAll('.section');
+const navLink = document.querySelectorAll('.navbar-link');
+const contactLink = document.querySelector('.navbar-link:last-child');
+
+let options = {
+	root: null,
+	rootMargin: '0px',
+	threshold: 1.0,
+};
+const observerHandler = (entries, observer) => {
+	entries.forEach((entry) => {
+		if (entry.isIntersecting === true) {
+			navLink.forEach((link) => {
+				link.textContent === entry.target.id
+					? link.classList.add('active')
+					: link.classList.remove('active');
+			});
+		}
+	});
+};
+const observer = new IntersectionObserver(observerHandler, options);
+sections.forEach((section) => {
+	observer.observe(section);
 });
 
+// Gold color link on subpage contact
+if (contactLink != null) {
+	contactLink.classList.add('active');
+}
 // FOOTER DATE **********
 const currentYear = document.querySelector('.year');
 
@@ -50,43 +68,70 @@ const inputEmail = document.querySelector('#email');
 const inputPhone = document.querySelector('#number');
 const inputText = document.querySelector('#message');
 const errorMsg = document.querySelector('.error-info');
+const errorEmail = document.querySelector('.error-email');
 const submitBtn = document.querySelector('.submit-btn');
-// MODAl
 const modal = document.querySelector('.modal');
 const submittedIconCircle = document.querySelector('.circle');
 const submittedIconCheck = document.querySelector('.check');
 
-const validateEmail =(email) => { 
-	const regex = /^(([^<>()[]\\.,;:\s@\"]+(\.[^<>()[]\\.,;:\s@\"]+)*)|(\".+\"))@(([[0-9]{1,3}\‌​.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; 
-	return regex.test(email.value); 
-}
-// submit form function
-const formHandler = () => {
-	if (
-		inputName.value != '' &&
-		inputEmail.value != '' &&
-		inputText.value != ''
-	) {
-		validateEmail(inputEmail)
-		resetForm();
+const validateEmail = (email) => {
+	const regex =
+		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	if (regex.test(email)) {
+		errorEmail.style.display = 'none';
+		true;
+	} else if (email != '') {
+		inputEmail.classList.add('error-outline');
+		errorEmail.style.display = 'block';
+	}
+};
+
+const showError = () => {
+	errorMsg.style.display = 'block';
+	allInputs.forEach((input) => {
+		if (input.value === '') {
+			input.classList.add('error-outline');
+		}
+	});
+};
+
+const checkErrors = () => {
+	let errors = 0;
+
+	allInputs.forEach((input) => {
+		if (input.classList.contains('error-outline')) {
+			errors++;
+		}
+	});
+	if (errors === 0) {
 		modal.style.visibility = 'visible';
 		submittedIconCircle.classList.add('active-dash-circle');
 		submittedIconCheck.classList.add('active-check');
 		setTimeout(modalHandler, 3000);
+	}
+};
+
+const formCheck = () => {
+	if (
+		inputName.value != '' &&
+		inputEmail.value != '' &&
+		inputText.value != '' &&
+		validateEmail(inputEmail.value)
+		) {
+		resetForm();
 	} else {
-		errorMsg.style.display = 'block';
-		allInputs.forEach((input) => {
-			if (input.value === '') {
-				input.classList.add('error-outline');
-			}
-		});
+		showError();
 	}
 };
 // show modal after submit
+
 const modalHandler = () => {
 	modal.style.visibility = 'hidden';
 };
+
 // reset inputs and error msg after submit
+
 const resetForm = () => {
 	allInputs.forEach((input) => {
 		input.value = '';
@@ -94,8 +139,11 @@ const resetForm = () => {
 	});
 	inputPhone.value = '';
 	errorMsg.style.display = 'none';
+	errorEmail.style.display = 'none';
 };
+
 // clear inputs and error msg when typing ----------
+
 const clearInputs = () => {
 	allInputs.forEach((input) => {
 		if (input.value != '') {
@@ -104,16 +152,21 @@ const clearInputs = () => {
 	});
 	errorMsg.style.display = 'none';
 	submittedIconCircle.classList.remove('active-dash-circle');
-		submittedIconCheck.classList.remove('active-check');
+	submittedIconCheck.classList.remove('active-check');
 };
+
 allInputs.forEach((input) => {
 	input.oninput = clearInputs;
 });
+
 //  -----------
+
 if (submitBtn != null) {
 	submitBtn.addEventListener('click', (e) => {
 		e.preventDefault();
-		formHandler();
+		formCheck();
+		validateEmail(inputEmail.value);
+		checkErrors();
 	});
 }
 // EventListeners **********

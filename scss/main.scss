@@ -40,7 +40,7 @@ body {
 	width: 3px;
 	height: 20%;
 	transform: translate(-20px, -50%);
-	background: gold;
+	background: $gold;
 }
 
 // NAV section **********
@@ -55,12 +55,13 @@ body {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		height: 85px;
 		&__logo {
 			padding: 0.6em;
 			font-family: 'Pinyon Script', cursive;
 			a {
 				margin-left: 0.5em;
-				font-size: clamp(3.4rem, 6vw, 7rem);
+				font-size: clamp(3.8rem, 6vw, 7rem);
 				color: $light;
 				text-decoration: none;
 			}
@@ -71,11 +72,14 @@ body {
 			text-transform: uppercase;
 			.navbar-link {
 				position: relative;
-				padding: 1.4rem;
+				padding: 1.4rem 1rem;
 				font-size: clamp(1.6rem, 2vw, 2rem);
-				color: white;
+				color: $light;
 				text-decoration: none;
 				transition: color 0.4s;
+				&:hover {
+					color: $gold;
+				}
 				&::before {
 					content: '';
 					position: absolute;
@@ -86,13 +90,13 @@ body {
 					height: 1px;
 					transition: background-color 0.4s, width 0.4s;
 				}
-				&:hover {
-					color: $gold;
-				}
 				&:hover::before {
 					width: 100%;
 					background-color: $gold;
 				}
+			}
+			.active {
+				color: gold;
 			}
 		}
 		&__burger-btn {
@@ -197,7 +201,9 @@ body {
 
 .header {
 	position: relative;
-	height: 80vh;
+	top: 0;
+	height: calc(100vh - 85px);
+	scroll-margin-top: 84px;
 	&__image {
 		width: 100%;
 		height: 100%;
@@ -232,36 +238,54 @@ body {
 
 // MAIN section **********
 .main {
+	&__aboutus {
+		scroll-margin-top: 84px;
+	}
 	&__about-text {
 		padding: 0 1em;
 	}
+	&__photos {
+		scroll-margin-top: 84px;
+	}
 	&__gallery {
+		position: relative;
 		background-image: url('../photos/hair-salon-big.jpg');
 		background-position: center;
 		background-size: cover;
+		z-index: 5;
 		&-img {
-			margin: 1em;
+			margin: 1em 0.5em;
 			padding: 1em;
-			background-color: $light;
 			border-radius: 6px;
 			img {
 				object-fit: cover;
+				width: 100%;
 				max-width: 100%;
+				height: 100%;
+				box-shadow: 0 0 20px 1px black;
 				border: 1px solid black;
 				border-radius: 5px;
 				transition: transform 0.3s;
 				&:hover {
-					transform: scale(1.18);
+					transform: scale(1.15);
 				}
 			}
 		}
 		&-link {
+			margin-top: 0.3em;
 			margin-right: 1em;
 			text-align: right;
 			a {
 				text-transform: uppercase;
 				@include hover;
 			}
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.6);
 		}
 	}
 	&__buttons-box {
@@ -292,10 +316,12 @@ body {
 			color: gold;
 		}
 	}
-
+	&__reviews {
+		scroll-margin-top: 84px;
+	}
 	&__review-box {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: center;
 		flex-wrap: wrap;
 	}
 	&__review {
@@ -393,7 +419,17 @@ body {
 			padding: 0.2em;
 			a {
 				@include hover;
+				
 			}
+		}
+	}
+	&__facebook {
+		margin: 1em 1em 1em 0;
+		img {
+			margin-right: 0.5em;
+			width: 2rem;
+			height: 100%;
+			border-radius: 50%;
 		}
 	}
 	&__box {
@@ -420,16 +456,40 @@ body {
 			}
 			input,
 			textarea {
+				margin: 0.5em 0;
 				padding: 0.4em;
 				font-family: 'Montserrat';
-				border-radius: 5px;
+				background: none;
+				border: none;
+				border-bottom: 1px solid $gold;
+				color: $light;
+			}
+			input:-webkit-autofill,
+			input:-webkit-autofill:hover,
+			input:-webkit-autofill:focus,
+			input:-webkit-autofill:active {
+				box-shadow: none;
+				-webkit-box-shadow: 0 0 0 30px rgb(30, 30, 30) inset;
+			}
+			input:-webkit-autofill {
+				-webkit-text-fill-color: $light;
+			}
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			input[type='number'] {
+				-moz-appearance: textfield; /* Firefox */
 			}
 			textarea {
 				resize: vertical;
 				min-height: 2.2em;
 				max-height: 35vh;
 			}
-			.error-info {
+			.error-info,
+			.error-email {
 				display: none;
 				padding-top: 0.4em;
 				color: tomato;
@@ -438,9 +498,18 @@ body {
 				border: 3px solid tomato;
 			}
 			.submit-btn {
-				padding: 0.2em;
-				margin: 1em auto;
-				width: 10em;
+				align-self: flex-end;
+				padding: 0.8em;
+				margin: 1em 0 1em;
+				width: 7em;
+				font-weight: bold;
+				border: none;
+				background-color: $gold;
+				color: $black;
+				transition: background-color 0.5s;
+				&:hover {
+					background-color: rgb(143, 131, 62);
+				}
 			}
 		}
 		&-modal {
@@ -486,10 +555,10 @@ body {
 	}
 }
 .active-dash-circle {
-	animation: dash 1s ease-in-out;
+	animation: dash 1.4s ease-in-out;
 }
 .active-check {
-	animation: dash-check 1s 0.35s ease-in-out forwards;
+	animation: dash-check 1.4s 0.35s ease-in-out forwards;
 }
 
 .success {
@@ -512,10 +581,6 @@ body {
 	100% {
 		stroke-dashoffset: 900;
 	}
-}
-
-.rotate-arrow {
-	transform: rotate(180deg) translateX(-25%);
 }
 .animate-guide-left {
 	animation: 0.7s guideLeft forwards;
@@ -546,6 +611,14 @@ body {
 					transform: rotate(0);
 				}
 			}
+		}
+	}
+	.contact {
+		&__form {
+			width: 70%;
+		}
+		&__box {
+			margin:0 2em;
 		}
 	}
 }
@@ -589,7 +662,18 @@ body {
 @media (min-width: 992px) {
 	.contact {
 		&__form {
-			width: 80%;
+			width: 70%;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.nav-section {
+		.nav {
+			&__navbar {
+				.navbar-link {
+					padding: 1.4rem;
+				}
+			}
 		}
 	}
 }
