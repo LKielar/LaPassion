@@ -3,7 +3,7 @@ const mobileBtn = document.querySelector('.nav__mobile-btn');
 const mobileNav = document.querySelector('.nav__mobile');
 const links = document.querySelectorAll('.mobile-link');
 
-// NAV **********
+//******************** NAV ********************
 const openNav = () => {
 	mobileNav.classList.remove('closeNavAnimation');
 	mobileNav.classList.add('openNavAnimation');
@@ -22,7 +22,7 @@ const deleteAnimation = () => {
 	);
 };
 
-// Intersection Observer *****
+// ******************** Intersection Observer ********************
 const sections = document.querySelectorAll('.section');
 const navLink = document.querySelectorAll('.navbar-link');
 const contactLink = document.querySelector('.navbar-link:last-child');
@@ -47,12 +47,12 @@ const observer = new IntersectionObserver(observerHandler, options);
 sections.forEach((section) => {
 	observer.observe(section);
 });
-
 // Gold color link on subpage contact
 if (contactLink != null) {
 	contactLink.classList.add('active');
 }
-// FOOTER DATE **********
+
+// ******************** FOOTER DATE ********************
 const currentYear = document.querySelector('.year');
 
 const getCurrentYear = () => {
@@ -61,7 +61,7 @@ const getCurrentYear = () => {
 };
 getCurrentYear();
 
-// FORM **********
+//******************** FORM ********************
 const allInputs = document.querySelectorAll('.input');
 const inputName = document.querySelector('#name');
 const inputEmail = document.querySelector('#email');
@@ -86,7 +86,6 @@ const validateEmail = (email) => {
 		errorEmail.style.display = 'block';
 	}
 };
-
 const showError = () => {
 	errorMsg.style.display = 'block';
 	allInputs.forEach((input) => {
@@ -95,7 +94,6 @@ const showError = () => {
 		}
 	});
 };
-
 const checkErrors = () => {
 	let errors = 0;
 
@@ -109,9 +107,9 @@ const checkErrors = () => {
 		submittedIconCircle.classList.add('active-dash-circle');
 		submittedIconCheck.classList.add('active-check');
 		setTimeout(modalHandler, 3000);
-	}
+		resetForm()
+	} 
 };
-
 const formCheck = () => {
 	if (
 		inputName.value != '' &&
@@ -119,19 +117,16 @@ const formCheck = () => {
 		inputText.value != '' &&
 		validateEmail(inputEmail.value)
 		) {
-		resetForm();
+		checkErrors();
 	} else {
 		showError();
 	}
 };
 // show modal after submit
-
 const modalHandler = () => {
 	modal.style.visibility = 'hidden';
 };
-
 // reset inputs and error msg after submit
-
 const resetForm = () => {
 	allInputs.forEach((input) => {
 		input.value = '';
@@ -141,9 +136,7 @@ const resetForm = () => {
 	errorMsg.style.display = 'none';
 	errorEmail.style.display = 'none';
 };
-
 // clear inputs and error msg when typing ----------
-
 const clearInputs = () => {
 	allInputs.forEach((input) => {
 		if (input.value != '') {
@@ -154,22 +147,19 @@ const clearInputs = () => {
 	submittedIconCircle.classList.remove('active-dash-circle');
 	submittedIconCheck.classList.remove('active-check');
 };
-
 allInputs.forEach((input) => {
 	input.oninput = clearInputs;
 });
-
 //  -----------
-
 if (submitBtn != null) {
 	submitBtn.addEventListener('click', (e) => {
 		e.preventDefault();
 		formCheck();
-		validateEmail(inputEmail.value);
 		checkErrors();
 	});
 }
-// EventListeners **********
+
+// ******************** EventListeners ********************
 
 burgerBtn.addEventListener('click', openNav);
 mobileBtn.addEventListener('click', closeNav);
