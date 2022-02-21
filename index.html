@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Welcome to La Passion, where we guarantee the highest quality hairdressing services provided by the best hairdressers in Leeds.">
     <title>La Passion Armley - Hair Salon</title>
+    <link rel="canonical" href="https://lapassionhair.co.uk/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pinyon+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="https://kit.fontawesome.com/f61444671f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
 
 <body>
@@ -23,86 +25,162 @@
             </div>
             <div class="nav__navbar">
                 <a href="#" class="navbar-link">home</a>
-                <a href="#aboutus" class="navbar-link scroll">about us</a>
-                <a href="./gallery.html" class="navbar-link">gallery</a>
+                <a href="#about us" class="navbar-link">about us</a>
+                <a href="#gallery" class="navbar-link">gallery</a>
+                <a href="#reviews" class="navbar-link">reviews</a>
                 <a href="./contact.html" class="navbar-link">contact</a>
             </div>
-            <button class="nav__burger-btn"><i class="fas fa-bars"></i></button>
+            <button class="nav__burger-btn" aria-label="open navigation"><img src="./dist/img/icons/bars.svg" alt="Menu"
+                    loading="lazy"></button>
             <div class="nav__mobile">
-                <button class="nav__mobile-btn"><i class="fas fa-times"></i></button>
+                <button class="nav__mobile-btn" aria-label="close navigation"><img src="./dist/img/icons/hide menu.svg"
+                        alt="Hide menu"></button>
                 <ul class="nav__mobile-links">
                     <li><a href="#" class="mobile-link">home</a></li>
-                    <li><a href="#aboutus" class="mobile-link scroll">about us</a></li>
-                    <li><a href="./gallery.html" class="mobile-link">gallery</a></li>
+                    <li><a href="#about us" class="mobile-link">about us</a></li>
+                    <li><a href="#gallery" class="mobile-link">gallery</a></li>
+                    <li><a href="#reviews" class="mobile-link">reviews</a></li>
                     <li><a href="./contact.html" class="mobile-link">contact</a></li>
                 </ul>
-                <img src="./icons/scissors-2702564.svg" alt="grey haidressers scissors">
+                <img class="nav__mobile--img" src="./dist/img/icons/scissors-2702564.svg"
+                    alt="grey haidressers scissors">
             </div>
         </nav>
     </div>
-    <header class="wrapper header">
+    <header class="header section" id="home">
         <div class="header__image">
             <div class="header__shadow"></div>
             <div class="header__text">
-                <h1 class="header__text-title">Hair Salon with Passion</h1>
-                <p class="header__text-description">It's not just a haircut .. It's a passion!<br>
+                <h1 class="header__text--title">Hair Salon with Passion</h1>
+                <p class="header__text--description">It's not just a haircut .. It's a passion!<br>
                     We provide a wide range of hairdressing services for women, men and children in our salon.</p>
             </div>
         </div>
     </header>
-    <main class="wrapper main">
-        <section class="main__aboutus" id="aboutus">
-            <h2 class="main__title title">about us</h2>
-            <p class="main__about-text">La Passion Hair Salon is a place created specifically for people who wish for
-                utter beauty. Our guests
-                can always count on professional support, advice and assistance from the staff. Nice, intimate
-                atmosphere, as well as individual approach to the customers that you will find in our Salon everything
-                that is needed to fully relax. <br><br> As always Hairdressing Services Technician I care to meet the
-                needs of each client. Years gained as an apprenticeship under the tutelage of the best stylists helped
-                me to liaise with prestigious salons in the UK and consequently the opening Salon LA PASSION. An
-                additional advantage of our prices are affordable for everyone ... welcome :))))</p>
+    <main class="main">
+        <section class="main__about-us section" id="about us">
+            <div class="wrapper">
+                <h2 class="main__title title">about us</h2>
+                <div class="main__about-us-container">
+                    <div class="main__about-text">
+                        <h3 class="main__about-text--title">Our Salon</h3>
+                        <p class="main__about-text--text">La Passion Hairdressing Salon is a place created especially
+                            for people who want full beauty. Our guests can always count on professional support, advice
+                            and help from the staff. A nice, intimate atmosphere as well as an individual approach to
+                            customers means that in our Salon you will find everything you need for complete
+                            relaxation.<br /><br />
+                            As always, a Hairdressing Technician, I care about meeting the needs of each client. Years
+                            of apprenticeship under the watchful eye of the best stylists helped me establish
+                            cooperation with prestigious salons in Great Britain and, consequently, open the LA PASSION
+                            Salon. Our additional advantage is affordable prices for everyone.</p>
+                    </div>
+                    <div class="main__about-services">
+                        <h3 class="main__about-services--title">Services</h3>
+                        <ul class="main__about-services--list">
+                            <li>Gents cuts <span><small>from</small> 12 £</span></li>
+                            <li>Ladies <span><small>from</small> 20 £</span></li>
+                            <li>Blow-dry <span><small>from</small> 20 £</span></li>
+                            <li>Wash, cut and blow-dry &nbsp;&nbsp; <span><small>from</small> 25 £</span></li>
+                            <li>Full head colour <span><small>from</small> 60 £</span></li>
+                            <li>Hair up <span><small>from</small> 20 £</span></li>
+                            <li>Highlights <span><small>from</small> 65 £</span></li>
+                            <li>Sombre <span><small>from</small> 65 £</span></li>
+                            <li>Ombre/Dip-dye <span><small>from</small> 60 £</span></li>
+                            <li>Keratin treatment <span><small>from</small> 65 £</span></li>
+                            <li>Hair botox <span><small>from</small> 40 £</span></li>
+                            <li>Olaplex <span><small>from</small> 30 £</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="main__photos">
-            <h2 class="main__title title">our work</h2>
+        <section class="main__photos section wrapper" id="gallery">
+            <h2 class="main__title title">gallery</h2>
             <div class="main__buttons-box">
-                <button class="main__slick-btn prev">←</button>
-                <button class="main__slick-btn next">→</button>
+                <button class="main__slick-btn prev" aria-label="previous slide"><img
+                        src="./dist/img/icons/arrow-left.svg" alt="arrow-left"></button>
+                <button class="main__slick-btn next" aria-label="next slide"><img src="./dist/img/icons/arrow-right.svg"
+                        alt="arrow-right"></button>
             </div>
             <div class="main__gallery img-carousel">
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/119717831_3467654733254551_8563139771668989654_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo1.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/201737700_4241200532566630_3085258816620113741_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo2.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/258995917_4717955754891103_1327589092365347905_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo3.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/62319911_2405388022814566_6400310326914449408_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo4.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/69761986_2546446325375401_381043159129391104_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo5.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/70893419_2582879428398757_4310534907475525632_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo6.jpg" alt="women hair transformation before and after">
                 </div>
-                <div class="main__gallery-img">
-                    <img src="./photos/mainphotos/82450638_2830792326940798_5507149393557454848_n.jpg"
-                        alt="women hair transformation before and after">
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo7.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo8.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo9.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo10.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo11.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo12.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo13.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo14.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo15.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo16.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo17.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo18.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo19.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo20.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo21.jpg" alt="women hair transformation before and after">
+                </div>
+                <div class="main__gallery--img">
+                    <img src="./dist/img/sliderImages/photo22.jpg" alt="women hair transformation before and after">
                 </div>
             </div>
-            <button class="main__slick-btn main__slick-btn--pause slick-pause">||</button>
-            <button class="main__slick-btn main__slick-btn--play slick-play">▶</button>
-            <p class="main__gallery-link">See more photos in <a href="./gallery.html">gallery</a></p>
+            <div class="main__slick-btns">
+                <button class="main__slick-btn main__slick-btn--pause slick-pause" aria-label="pause slider"><img
+                        src="./dist/img/icons/pause.svg" alt="pause"></button>
+                <button class="main__slick-btn main__slick-btn--play slick-play" aria-label="start slider"><img
+                        src="./dist/img/icons/play.svg" alt="play"></button>
+            </div>
+            <p class="main__gallery--link">To see more photos, please visit our <a
+                    href="https://www.facebook.com/lapassionhair/" target="_blank" rel="noreferrer"
+                    rel="noopener">facebook</a></p>
         </section>
-        <section class="main__reviews">
+        <section class="main__reviews section wrapper" id="reviews">
             <h2 class="main__title title">reviews</h2>
             <div class="main__review-box">
                 <figure class="main__review">
@@ -115,6 +193,14 @@
                 </figure>
                 <figure class="main__review">
                     <blockquote>
+                        <p>"Talented hairdresser that I'm not yet thankfully paying town prices for, please don't change
+                            that as my hair has never grown so long! I keep her business cards in my letting agency she
+                            is that well recommended."</p>
+                        <figcaption>- Hazel</figcaption>
+                    </blockquote>
+                </figure>
+                <figure class="main__review">
+                    <blockquote>
                         <p>"My daughter and I both frequent this salon. Always very happy after visiting here. Highly
                             recommended."</p>
                         <figcaption>- Susan</figcaption>
@@ -122,10 +208,9 @@
                 </figure>
                 <figure class="main__review">
                     <blockquote>
-                        <p>"Talented hairdresser that I'm not yet thankfully paying town prices for, please don't change
-                            that as my hair has never grown so long! I keep her business cards in my letting agency she
-                            is that well recommended."</p>
-                        <figcaption>- Hazel</figcaption>
+                        <p>"Kasia is a professional. She is nice and friendly. Explains everything step by step what she
+                            does.I recommend this salon to everyone."</p>
+                        <figcaption>- Oliwia</figcaption>
                     </blockquote>
                 </figure>
                 <figure class="main__review">
@@ -146,55 +231,34 @@
             <div class="footer__boxes">
                 <div class="footer__info">
                     <h3 class="footer__title footer__title--first">Opening Times</h3>
-                    <table>
-                        <tr>
-                            <td>Monday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday:&nbsp;&nbsp;</td>
-                            <td>closed</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Friday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday:</td>
-                            <td>closed</td>
-                        </tr>
-                    </table>
+                    <p>* The opening hours of the salon vary and depend on the number of visits booked.</p>
                 </div>
                 <div class="footer__contact">
                     <h3 class="footer__title">Get In Touch</h3>
-                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+447720681125">+44 772 068 1125</a></p>
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kasia4@mail.com">kasia4@mail.com</a></p>
+                    <p><img src="./dist/img/icons/phone.svg" alt="phone icon"> Phone: <a href="tel:+447720681125">+44
+                            772 068
+                            1125</a></p>
+                    <p><img src="./dist/img/icons/mail.svg" alt="email icon"> E-mail: <a
+                            href="mailto:contact@lapassionhair.co.uk">contact@lapassionhair.co.uk</a>
+                    </p>
                 </div>
                 <div class="footer__social-media">
                     <h3 class="footer__title">Social Media</h3>
                     <div class="footer__links">
                         <a href="https://www.facebook.com/lapassionhair/" target="_blank" rel="noreferrer"
-                            rel="noopener"><img src="./photos/facebook.png" alt="la passion facebook icon link"></a>
+                            rel="noopener" aria-label="link to facebook">
+                            <img src="./dist/img/facebook.png" alt="la passion facebook icon link"></a>
                         <a href="https://www.instagram.com/la_passion_hair/" target="_blank" rel="noreferrer"
-                            rel="noopener"><img src="./photos/instagram-1675670_640.png"
-                                alt="la passion instagram icon link"></a>
+                            rel="noopener" aria-label="link to instagram"><img
+                                src="./dist/img/instagram-1675670_640.png" alt="la passion instagram icon link"></a>
                     </div>
                 </div>
             </div>
             <div class="footer__text-box">
-                <p class="footer__text">&copy; <span class="year">2022</span> La Passion</p>
+                <p class="footer__text">&copy; <span class="year"></span> La Passion - All rights reserved</p>
+                <p class="footer__privacy"><a
+                        href="https://www.privacypolicies.com/live/c7940cf0-c233-4fe1-a939-009cd9df9fe6" target="_blank"
+                        rel="noreferrer" rel="noopener">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -202,8 +266,8 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="./js/slick.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./dist/js/slick.min.js"></script>
+    <script src="./dist/js/main.min.js"></script>
 </body>
 
 </html>

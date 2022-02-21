@@ -1,79 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Passion Armley - Hair Salon</title>
+    <meta name="description"
+        content="If you have any questions or would like to make an appointment, don't hesitate to get in touch with our friendly team.">
+    <title>La Passion Armley | Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pinyon+Script&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="./css/main.css">
-    <script src="https://kit.fontawesome.com/f61444671f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./dist/css/main.min.css">
 </head>
 
 <body>
     <div class="nav-section">
         <nav class="wrapper nav">
             <div class="nav__logo">
-                <a href="#">La Passion</a>
+                <a href="./index.html">La Passion</a>
             </div>
             <div class="nav__navbar">
                 <a href="./index.html" class="navbar-link">home</a>
-                <a href="./index.html" class="navbar-link">about us</a>
-                <a href="./gallery.html" class="navbar-link">gallery</a>
-                <a href="#" class="navbar-link">contact</a>
+                <a href="#" class="navbar-link contact-link">contact</a>
             </div>
-            <button class="nav__burger-btn"><i class="fas fa-bars"></i></button>
+            <button class="nav__burger-btn"><img src="./dist/img/icons/bars.svg" alt="Menu"></button>
             <div class="nav__mobile">
-                <button class="nav__mobile-btn"><i class="fas fa-times"></i></button>
+                <button class="nav__mobile-btn"><img src="./dist/img/icons/hide menu.svg" alt="Hide menu"></button>
                 <ul class="nav__mobile-links">
                     <li><a href="./index.html" class="mobile-link">home</a></li>
-                    <li><a href="./index.html" class="mobile-link">about us</a></li>
-                    <li><a href="./gallery.html" class="mobile-link">gallery</a></li>
                     <li><a href="#" class="mobile-link">contact</a></li>
                 </ul>
-                <img src="./icons/scissors-2702564.svg" alt="grey haidressers scissors">
+                <img class="nav__mobile--img" src="./dist/img/icons/scissors-2702564.svg"
+                    alt="grey haidressers scissors">
             </div>
         </nav>
     </div>
     <main class="wrapper contact">
-        <h2 class="title">contact</h2>
+        <h1 class="title">contact</h1>
         <div class="contact__container">
             <div class="contact__get-in-touch">
                 <h3 class="contact__title">get in touch</h3>
                 <p>Katarzyna Podborska</p>
-                <p><i class="fas fa-phone"></i> Phone: <a href="tel:+447720681125">+44 772 068 1125</a></p>
-                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kasia4@mail.com">kasia4@mail.com</a></p>
-                <p>Or simply visit us at:</p>
-                <p class="contact__address">73 Town St, Armley, Leeds LS12 3HD</p>
+                <p><img src="./dist/img/icons/phone.svg" alt="phone icon"> Phone: <a href="tel:+447720681125">+44 772
+                        068 1125</a></p>
+                <p><img src="./dist/img/icons/mail.svg" alt="email icon"> E-mail: <a
+                        href="mailto:contact@lapassionhair.co.uk">contact@lapassionhair.co.uk</a></p>
+                <p><img src="./dist/img/icons/home.svg" alt="home icon"> Address: <span class="contact__address">73 Town
+                        Street, Armley, Leeds LS12 3HD</span></p>
+                <p class="contact__facebook"><img src="./dist/img/facebook.png" alt="facebook logo">Also check our <a
+                        href="https://www.facebook.com/lapassionhair/" target="_blank" rel="noreferrer"
+                        rel="noopener">facebook</a></p>
             </div>
             <div class="contact__box">
                 <h3 class="contact__title">contact form</h3>
-                <form class="contact__box-form">
+                <form action="mail.php" id="form" class="contact__box--form" method="post">
                     <label for="name">Your name</label>
-                    <input type="text" class="input" id="name" placeholder="Name..">
+                    <input type="text" class="input" id="name" name="contact-name" placeholder="Name.." maxlength="35" required>
                     <label for="email">E-mail address</label>
-                    <input type="text" class="input" id="email" placeholder="E-mail..">
-                    <label for="number">Phone number <span>(Optional)</span></label>
-                    <input type="number" id="number" placeholder="Phone Number..">
+                    <input type="email" class="input" id="email" name="contact-mail" placeholder="E-mail.." maxlength="40" required>
+                    <label for="number">Subject</label>
+                    <input type="text" id="subject" class="input" placeholder="Subject.." name="contact-subject" maxlength="40"
+                        required>
                     <label for="message">Message to us</label>
-                    <textarea name="message" class="input" id="message" placeholder="Your message.."></textarea>
-                    <p class="error-info">Please fill in all the required fields.</p>
-                    <button class="submit-btn" type="submit">Send form</button>
+                    <textarea name="contact-msg" class="input" id="message" placeholder="Your message.." maxlength="800" required></textarea>
+                    <div class="contact__policy">
+                        <p><input type="checkbox" class="checkbox" required> I have read and accept <a
+                                href="https://www.privacypolicies.com/live/c7940cf0-c233-4fe1-a939-009cd9df9fe6"
+                                target="_blank" rel="noreferrer" rel="noopener">Privacy Policy</a>.</p>
+                        <button class="submit-btn" type="submit" name="submit-btn">Send</button>
+                    </div>
                 </form>
-                <div class="contact__box-modal modal">
-                    <p>Successfully sent!</p>
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                        <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10"
-                            cx="65.1" cy="65.1" r="62.1" />
-                        <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round"
-                            stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " />
-                    </svg>
-                </div>
             </div>
             <div class="contact__map">
                 <h3 class="contact__title">Where to find us</h3>
@@ -88,59 +87,36 @@
             <div class="footer__boxes">
                 <div class="footer__info">
                     <h3 class="footer__title footer__title--first">Opening Times</h3>
-                    <table>
-                        <tr>
-                            <td>Monday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday:&nbsp;&nbsp;</td>
-                            <td>closed</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Friday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday:</td>
-                            <td>10:30 - 18:30</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday:</td>
-                            <td>closed</td>
-                        </tr>
-                    </table>
+                    <p>* The opening hours of the salon vary <br> and depend on the number of visits booked</p>
                 </div>
                 <div class="footer__contact">
                     <h3 class="footer__title">Get In Touch</h3>
-                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+447720681125">+44 772 068 1125</a></p>
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:kasia4@mail.com">kasia4@mail.com</a></p>
+                    <p><img src="./dist/img/icons/phone.svg" alt="phone icon"> Phone: <a href="tel:+447720681125">+44
+                            772 068 1125</a></p>
+                    <p><img src="./dist/img/icons/mail.svg" alt="email icon"> E-mail: <a
+                            href="mailto:contact@lapassionhair.co.uk">contact@lapassionhair.co.uk</a>
+                    </p>
                 </div>
                 <div class="footer__social-media">
                     <h3 class="footer__title">Social Media</h3>
                     <div class="footer__links">
                         <a href="https://www.facebook.com/lapassionhair/" target="_blank" rel="noreferrer"
-                            rel="noopener"><img src="./photos/facebook.png" alt="la passion facebook icon link"></a>
+                            rel="noopener"><img src="./dist/img/facebook.png" alt="la passion facebook icon"></a>
                         <a href="https://www.instagram.com/la_passion_hair/" target="_blank" rel="noreferrer"
-                            rel="noopener"><img src="./photos/instagram-1675670_640.png"
-                                alt="la passion instagram icon link"></a>
+                            rel="noopener"><img src="./dist/img/instagram-1675670_640.png"
+                                alt="la passion instagram icon"></a>
                     </div>
                 </div>
             </div>
             <div class="footer__text-box">
-                <p class="footer__text">&copy; <span class="year"></span> La Passion</p>
+                <p class="footer__text">&copy; <span class="year"></span> La Passion - All rights reserved</p>
+                <p class="footer__privacy"><a
+                        href="https://www.privacypolicies.com/live/c7940cf0-c233-4fe1-a939-009cd9df9fe6" target="_blank"
+                        rel="noreferrer" rel="noopener">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
-    <script src="./js/main.js"></script>
+    <script src="./dist/js/main.min.js"></script>
 </body>
 
 </html>
